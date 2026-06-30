@@ -20,7 +20,9 @@ junsang의 **자소서 생산 파이프라인**. 1순위 작업 = **마스터 �
 
 - [x] 저장소에 `자소서/` 파이프라인 구조 구축 + Notion 자료 전체 포팅 (self-contained).
 - [x] 마스터 2종(`00_마스터/`), 지침 3종(`01_지침/`), 경험자산(`02_경험자산/`), 입력 템플릿(`03_양식별_출력/_입력_템플릿.md`), README, 이 핸드오프 작성.
+- [x] 포트폴리오 케이스스터디(`02_경험자산/포트폴리오_케이스스터디.md`) 포팅 + 경험자산에 **neural-flow(Flagship)·2025 구리시 숏폼 공모전 우수상·금융사관학교 국제경제전문가 과정 수료** 반영.
 - [x] 커밋·푸시 (브랜치 `claude/jasoser-pipeline-setup-6lxfpx`).
+- [ ] **대조 2건 확인 대기**: AdGuard(67건↔10건중9건) · E-Nudge 1위 마스터 반영 여부. → `01_지침/정직성_규칙.md`
 - [ ] **4가지 양식 작성 — 대기 중.** junsang이 4개 회사의 양식(문항·글자수·회사정보)과 추가 기준을 주면 시작.
 
 ## 다음 작업 (바로 이어서)
@@ -39,4 +41,5 @@ junsang의 **자소서 생산 파이프라인**. 1순위 작업 = **마스터 �
 
 - 작업 디렉토리: `/home/user/myportfolio`, 브랜치 `claude/jasoser-pipeline-setup-6lxfpx`.
 - Notion 원본 링크는 `README.md` 하단 참고. Notion DB SQL 쿼리는 Business 플랜 필요(현재 불가) → 경험자산은 `02_경험자산/경험자산.md`로 미러됨.
+- **junsang의 활동 정리본 원본은 `PhrenO0/obsidian-vault` 레포에 있음.** 현재 세션 GitHub 스코프는 `phreno0/myportfolio`만 — obsidian-vault는 스코프 밖. 가져오려면 junsang이 명시적으로 요청 후 `add_repo`로 세션에 추가해야 함.
 - Google Drive MCP는 재인증 필요(토큰 만료) — 필요 시 junsang이 connector 재인증.
