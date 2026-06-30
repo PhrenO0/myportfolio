@@ -1,7 +1,7 @@
 # 자소서 파이프라인
 
 junsang(오준상)의 자기소개서 생산 파이프라인. **마스터 1개 → 회사별 양식에 맞춰 변주**하는 반복 구조.
-포지셔닝: **CX형 AI 서비스기획자 (Experience-led Product Builder)** — '그로스 마케터'로 좁히지 말 것.
+포지셔닝: **소비자·콘텐츠 AI 프로덕트 기획자** (= AI로 직접 만드는 콘텐츠·서비스 기획자). 세 자산 = AI·빌딩 / 콘텐츠·영상 / 사용자이해. 정체성·원칙 기준은 [`../자소서-근본목적.md`](../자소서-근본목적.md).
 
 ## 구조 (5개 문서)
 
@@ -33,19 +33,23 @@ junsang(오준상)의 자기소개서 생산 파이프라인. **마스터 1개 �
 
 **현재 상태**
 - [x] 파이프라인 구축 + Notion·obsidian-vault 자료 병합 → 문서 5개로 통합.
-- [x] obsidian-vault(`/workspace/obsidian-vault`) 세션 추가됨. 정본 정리본(`30_areas/career/*`) 병합.
+- [x] 경험자산표 메인에 #13 구리시 공모전·#14 금융사관학교·#15 사회리더 멘토링 정식 추가 (총 15+).
 - [x] 미확정 항목 유리·정직 방향 확정: 유학생 7명 면접/멘토링·E-Nudge 1위 마스터 반영.
+- [x] **`main` 병합 + 포지셔닝 통일**: '소비자·콘텐츠 AI 프로덕트 기획자'로 정렬, 루트 `../자소서-근본목적.md`(헌법)·`../README.md`(정체성) 참조.
 - [ ] **본 작업 — 대기 중**: 4개 회사 양식(문항·글자수) 받아 마스터 변주.
 
 **남은 확인 (실데이터 필요)**
+- **부동산시장분석론(#11)**: 로컬 강의 폴더가 repo로 푸시되면 당겨서 정량 보강 (현재 미도착 — obsidian-vault/myportfolio 어디에도 없음).
 - 하우스 매니저 객단가(37→43k) 기간·장소·산식 — 확정 전 자소서 사용 보류.
 
 **참고**
-- 작업 디렉토리 `/home/user/myportfolio`, 브랜치 `claude/jasoser-pipeline-setup-6lxfpx`.
+- 작업 디렉토리 `/home/user/myportfolio`, 브랜치 `claude/jasoser-pipeline-setup-6lxfpx` (now `main` 병합됨).
+- ⚠️ `main`은 다른 세션이 정체성 문서(README·자소서-근본목적)를 운영 중 — 루트 파일은 그 세션 영역, 충돌 피하려 건드리지 않음.
 - obsidian-vault에 `40_resources/career/jaso-pipeline.md`(기존 파이프라인 문서) 있음 — 필요 시 정합.
 - Notion DB SQL은 Business 플랜 필요(불가). Google Drive MCP 토큰 만료(재인증 필요).
 
 ## 출처
 
+- **포트폴리오 헌법(루트)**: `../자소서-근본목적.md`(정체성·원칙) · `../README.md`(오준상 포트폴리오·세 자산).
 - **Notion**: 마스터본 v7 / 4문항 · 자기소개서 전략 · 자소서 커스터마이저 · 경험 자산 DB · `인턴 지원` / `neural-flow`.
 - **obsidian-vault** (`PhrenO0/obsidian-vault`): `experience-inventory` · `star-experience-bank` · `career-profile` · `jaso-pipeline`.
