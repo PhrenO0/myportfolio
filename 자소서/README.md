@@ -39,9 +39,8 @@ junsang의 자기소개서 생산 파이프라인. **마스터 자소서 1개 �
 - **'저는'으로 시작 금지 · '귀사/지원하게 되었습니다/성장하고 싶습니다' 금지.**
 - **날조 0**: 무신사 미수상 · A.INUS 팀수상 · E-Nudge 설계까지 · GraphRAG=윤재. → `01_지침/정직성_규칙.md`
 
-## 원본 (Notion)
+## 원본 (Notion + obsidian-vault)
 
-이 저장소는 Notion 자료를 포팅한 작업 사본이다. 원본:
-- `🌟 자기소개서 마스터본 v7` · `🎯 자기소개서 마스터본 — 4문항(필살기)`
-- `자기소개서 전략` · `✍️ 자소서 커스터마이저(프롬프트)` · `🗂️ 경험 자산` DB
-- 상위: `인턴 지원` / `🌊 neural-flow — 이상적인 삶 운영 시스템`
+이 저장소는 Notion + `PhrenO0/obsidian-vault` 자료를 포팅·병합한 작업 사본이다. 원본:
+- **Notion**: `🌟 자기소개서 마스터본 v7` · `🎯 4문항(필살기)` · `자기소개서 전략` · `✍️ 자소서 커스터마이저` · `🗂️ 경험 자산` DB · 상위 `인턴 지원` / `🌊 neural-flow`
+- **obsidian-vault** (정본 활동 정리본): `30_areas/career/experience-inventory.md` · `star-experience-bank.md` · `career-profile.md` · `40_resources/career/jaso-pipeline.md`
