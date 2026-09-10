@@ -9,41 +9,54 @@
   font-weight:45 920;font-style:normal;font-display:block}
 
 :root{
-  --paper:#f4f1ea; --paper-2:#eae5da; --line:#d8d1c2;
-  --ink:#15151a; --ink-2:#4a463f; --ink-3:#8a857b;
-  --accent:#c8401a;
+  --paper:#0a0a0b; --paper-2:#141418; --line:#2c2c33;
+  --ink:#f2efe9; --ink-2:#b3aea4; --ink-3:#726d65;
+  --accent:#ff5a1f;
+  --grid:rgba(242,239,233,.032);
   --sans:'Pretendard',-apple-system,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;
   --mono:ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace;
 }
 *,*::before,*::after{box-sizing:border-box}
-html,body{margin:0;padding:0;background:#3a3a3e}
+html,body{margin:0;padding:0;background:#000}
 body{font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased;word-break:keep-all;overflow-wrap:break-word}
 img{display:block;max-width:100%}
 
 .pg{
   position:relative;width:210mm;height:297mm;margin:0 auto 8mm;overflow:hidden;
   background:var(--paper);padding:15mm 16mm 13mm;display:flex;flex-direction:column;
+  background-image:
+    linear-gradient(var(--grid) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:12mm 12mm;
 }
+.pg>*{position:relative;z-index:2}
+.ghost{
+  position:absolute;right:3mm;bottom:4mm;z-index:0;
+  font-size:150pt;font-weight:800;line-height:.78;letter-spacing:-.07em;
+  color:transparent;-webkit-text-stroke:1.1pt rgba(242,239,233,.06);
+  pointer-events:none;
+}
+.pg .ghost{z-index:0}
 .pg::after{content:attr(data-n);position:absolute;right:16mm;bottom:7mm;
   font-family:var(--mono);font-size:7.5pt;letter-spacing:.18em;color:var(--ink-3)}
 .pg::before{content:attr(data-t);position:absolute;left:16mm;bottom:7mm;
   font-family:var(--mono);font-size:7.5pt;letter-spacing:.18em;color:var(--ink-3);text-transform:uppercase}
 
-.hd{display:flex;align-items:baseline;gap:6mm;border-bottom:1.4pt solid var(--ink);
+.hd{display:flex;align-items:baseline;gap:6mm;border-bottom:1.2pt solid var(--ink);
   padding-bottom:3mm;margin-bottom:7mm}
 .hd .n{font-family:var(--mono);font-size:8pt;letter-spacing:.2em;color:var(--accent)}
-.hd h2{margin:0;font-size:20pt;font-weight:800;letter-spacing:-.035em;line-height:1.1}
+.hd h2{margin:0;font-size:21pt;font-weight:800;letter-spacing:-.035em;line-height:1.1}
 .hd .s{margin-left:auto;font-size:8.5pt;color:var(--ink-3);text-align:right;line-height:1.5;letter-spacing:-.01em}
 
 /* ---------- p1 cover ---------- */
 .cover{justify-content:space-between}
 .cover .top{font-family:var(--mono);font-size:8pt;letter-spacing:.22em;color:var(--ink-3);text-transform:uppercase}
-.cover h1{margin:0;font-size:58pt;font-weight:800;letter-spacing:-.05em;line-height:.88;text-transform:uppercase}
+.cover h1{margin:0;font-size:64pt;font-weight:800;letter-spacing:-.05em;line-height:.88;text-transform:uppercase}
 .cover h1 em{font-style:normal;color:var(--accent)}
 .cover .kr{margin:4mm 0 0;font-size:15pt;font-weight:700;letter-spacing:-.03em}
 .cover .thesis{margin:9mm 0 0;font-size:22pt;font-weight:700;line-height:1.34;letter-spacing:-.04em;max-width:17em}
 .cover .thesis b{color:var(--accent);font-weight:800}
-.cover .rule{height:1.4pt;background:var(--ink);margin:9mm 0 6mm}
+.cover .rule{height:1.2pt;background:linear-gradient(90deg,var(--accent) 0 22%,var(--ink) 22%);margin:9mm 0 6mm}
 .cover .meta{display:grid;grid-template-columns:repeat(3,1fr);gap:6mm;font-size:9pt;line-height:1.6}
 .cover .meta .k{font-family:var(--mono);font-size:7.5pt;letter-spacing:.18em;color:var(--accent);
   text-transform:uppercase;margin-bottom:2mm}
@@ -80,11 +93,11 @@ dd li{margin-bottom:1.6mm}
 dd li:last-child{margin-bottom:0}
 
 figure{margin:0}
-figure img{width:100%;border:1pt solid var(--line)}
+figure img{width:100%;border:1px solid var(--line);filter:contrast(1.03)}
 figcaption{margin-top:2mm;font-family:var(--mono);font-size:7pt;letter-spacing:.08em;
   color:var(--ink-3);text-transform:uppercase;line-height:1.5}
 
-.nums{grid-column:1/-1;display:flex;gap:10mm;border-top:1.4pt solid var(--ink);padding-top:4mm;margin-top:1mm}
+.nums{grid-column:1/-1;display:flex;gap:10mm;border-top:1.2pt solid var(--ink);padding-top:4mm;margin-top:1mm}
 .nums .v{font-size:21pt;font-weight:800;letter-spacing:-.045em;line-height:1}
 .nums .v em{font-style:normal;color:var(--accent)}
 .nums .k{font-family:var(--mono);font-size:7.5pt;letter-spacing:.1em;color:var(--ink-3);
@@ -95,7 +108,7 @@ figcaption{margin-top:2mm;font-family:var(--mono);font-size:7pt;letter-spacing:.
 .note b{color:var(--ink-2)}
 
 /* ---------- strip ---------- */
-.strip{margin-top:auto;border-top:1.4pt solid var(--ink);padding-top:4mm}
+.strip{margin-top:auto;border-top:1.2pt solid var(--ink);padding-top:4mm}
 .strip .row{display:grid;grid-template-columns:38mm 1fr;gap:5mm;padding:4mm 0;border-bottom:1pt solid var(--line)}
 .strip .row:last-child{border-bottom:0}
 .strip .t{font-size:10pt;font-weight:800;letter-spacing:-.03em}
@@ -127,7 +140,7 @@ figcaption{margin-top:2mm;font-family:var(--mono);font-size:7pt;letter-spacing:.
 .proof p{margin:0;font-size:8.5pt;color:var(--ink-3);line-height:1.5;letter-spacing:-.01em}
 
 .evi{display:grid;grid-template-columns:repeat(3,1fr);gap:5mm;margin-top:6mm}
-.contact{margin-top:auto;border-top:1.4pt solid var(--ink);padding-top:4mm;
+.contact{margin-top:auto;border-top:1.2pt solid var(--ink);padding-top:4mm;
   display:flex;gap:10mm;flex-wrap:wrap;font-size:9pt}
 .contact .k{font-family:var(--mono);font-size:7.5pt;letter-spacing:.16em;color:var(--accent);
   text-transform:uppercase;margin-bottom:1.5mm}
@@ -146,7 +159,7 @@ figcaption{margin-top:2mm;font-family:var(--mono);font-size:7pt;letter-spacing:.
 .pg.spread{justify-content:space-between}
 @media print{
   @page{size:A4;margin:0}
-  html,body{background:#fff}
+  html,body{background:var(--paper)}
   .pg{margin:0;break-after:page;box-shadow:none}
   .pg:last-child{break-after:auto}
   body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
@@ -157,6 +170,7 @@ figcaption{margin-top:2mm;font-family:var(--mono);font-size:7pt;letter-spacing:.
 
 <!-- ══════════ 1 ══════════ -->
 <section class="pg cover" data-n="01 / 08" data-t="오준상 Portfolio 2026">
+  <span class="ghost">01</span>
   <div class="top">오준상 · Junsang Oh &nbsp;—&nbsp; Portfolio 2026</div>
   <div>
     <h1>Junsang<br>Oh<em>.</em></h1>
@@ -173,6 +187,7 @@ figcaption{margin-top:2mm;font-family:var(--mono);font-size:7pt;letter-spacing:.
 
 <!-- ══════════ 2 ══════════ -->
 <section class="pg spread" data-n="02 / 08" data-t="관점">
+  <span class="ghost">02</span>
   <div class="hd"><span class="n">01</span><h2>AI가 아직 답하지 못하는 질문</h2>
     <span class="s">미디어와 공간과 AI가<br>한 사람의 일인 이유</span></div>
 
@@ -198,6 +213,7 @@ figcaption{margin-top:2mm;font-family:var(--mono);font-size:7pt;letter-spacing:.
 
 <!-- ══════════ 3 ══════════ -->
 <section class="pg" data-n="03 / 08" data-t="회랑">
+  <span class="ghost">03</span>
   <div class="hd"><span class="n">02</span><h2>회랑</h2>
     <span class="s">의미 구조를<br>걸어 다니는 공간으로</span></div>
   <div class="pj">
@@ -232,6 +248,7 @@ figcaption{margin-top:2mm;font-family:var(--mono);font-size:7pt;letter-spacing:.
 
 <!-- ══════════ 4 ══════════ -->
 <section class="pg" data-n="04 / 08" data-t="CENTRALCOURT">
+  <span class="ghost">04</span>
   <div class="hd"><span class="n">03</span><h2>CENTRALCOURT</h2>
     <span class="s">공간 데이터를<br>결정의 언어로</span></div>
   <div class="pj">
@@ -267,6 +284,7 @@ figcaption{margin-top:2mm;font-family:var(--mono);font-size:7pt;letter-spacing:.
 
 <!-- ══════════ 5 ══════════ -->
 <section class="pg" data-n="05 / 08" data-t="AdGuard">
+  <span class="ghost">05</span>
   <div class="hd"><span class="n">04</span><h2>AdGuard</h2>
     <span class="s">수정까지 이어지는<br>광고 검수</span></div>
   <div class="pj">
@@ -294,6 +312,7 @@ figcaption{margin-top:2mm;font-family:var(--mono);font-size:7pt;letter-spacing:.
 
 <!-- ══════════ 6 ══════════ -->
 <section class="pg" data-n="06 / 08" data-t="실행력">
+  <span class="ghost">06</span>
   <div class="hd"><span class="n">05</span><h2>직접 만들고, 끝까지 내보내기</h2>
     <span class="s">개인 프로젝트와<br>콘텐츠 이력</span></div>
   <div class="pj" style="flex:0 0 auto">
@@ -325,6 +344,7 @@ figcaption{margin-top:2mm;font-family:var(--mono);font-size:7pt;letter-spacing:.
 
 <!-- ══════════ 7 ══════════ -->
 <section class="pg spread" data-n="07 / 08" data-t="여정 · 현재">
+  <span class="ghost">07</span>
   <div class="hd"><span class="n">06</span><h2>배움을 작업으로 이어 온 과정</h2>
     <span class="s">영상·멘토링 → AI 교육<br>→ 개인 프로젝트</span></div>
 
@@ -373,6 +393,7 @@ figcaption{margin-top:2mm;font-family:var(--mono);font-size:7pt;letter-spacing:.
 
 <!-- ══════════ 8 ══════════ -->
 <section class="pg spread" data-n="08 / 08" data-t="증명 · 연락">
+  <span class="ghost">08</span>
   <div class="hd"><span class="n">07</span><h2>증명</h2>
     <span class="s">수상 · 수료 · 자격<br>부풀리지 않은 범위</span></div>
 
