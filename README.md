@@ -3,6 +3,12 @@
 > **AI로 직접 만드는 콘텐츠·서비스 기획자.**
 > 복잡한 정보를, 사람이 이해하고 판단하고 *행동*할 수 있는 서비스 흐름으로 바꾼다.
 
+> 🌐 **웹 포트폴리오 → [phreno0.github.io/myportfolio](https://phreno0.github.io/myportfolio/)**
+> (에디토리얼 원페이지 · 프로젝트 화면은 실제 저장소에서 캡처 · 케이스 스터디 4편 포함)
+>
+> 📄 **제출용 8장 PDF → [`pdf/junsang-oh-portfolio-8p.pdf`](pdf/junsang-oh-portfolio-8p.pdf)**
+> (A4 8p · 명사형 · Spatial Intelligence 기준 재구성)
+
 중앙대학교 미디어커뮤니케이션학부(본전공) · 도시계획·부동산학부(복수전공).
 영상으로 사람을 모아본 감각, 멀티에이전트·풀스택을 끝까지 출시하는 실행력, 사용자를 깊이 이해하는 리서치 — 셋을 한 몸에 가진 빌더형 기획자.
 

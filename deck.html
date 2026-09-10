@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>오준상 — 포트폴리오 8p</title>
+<style>
+@font-face{font-family:'Pretendard';src:url('assets/font/PretendardVariable.woff2') format('woff2-variations');
+  font-weight:45 920;font-style:normal;font-display:block}
+
+:root{
+  --paper:#0a0a0b; --paper-2:#141418; --line:#2c2c33;
+  --ink:#f2efe9; --ink-2:#b3aea4; --ink-3:#726d65;
+  --accent:#ff5a1f;
+  --grid:rgba(242,239,233,.032);
+  --sans:'Pretendard',-apple-system,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;
+  --mono:ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace;
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#000}
+body{font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased;word-break:keep-all;overflow-wrap:break-word}
+img{display:block;max-width:100%}
+
+.pg{
+  position:relative;width:210mm;height:297mm;margin:0 auto 8mm;overflow:hidden;
+  background:var(--paper);padding:15mm 16mm 13mm;display:flex;flex-direction:column;
+  background-image:
+    linear-gradient(var(--grid) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:12mm 12mm;
+}
+.pg>*{position:relative;z-index:2}
+.ghost{
+  position:absolute;right:3mm;bottom:4mm;z-index:0;
+  font-size:150pt;font-weight:800;line-height:.78;letter-spacing:-.07em;
+  color:transparent;-webkit-text-stroke:1.1pt rgba(242,239,233,.06);
+  pointer-events:none;
+}
+.pg .ghost{z-index:0}
+.pg::after{content:attr(data-n);position:absolute;right:16mm;bottom:7mm;
+  font-family:var(--mono);font-size:7.5pt;letter-spacing:.18em;color:var(--ink-3)}
+.pg::before{content:attr(data-t);position:absolute;left:16mm;bottom:7mm;
+  font-family:var(--mono);font-size:7.5pt;letter-spacing:.18em;color:var(--ink-3);text-transform:uppercase}
+
+.hd{display:flex;align-items:baseline;gap:6mm;border-bottom:1.2pt solid var(--ink);
+  padding-bottom:3mm;margin-bottom:7mm}
+.hd .n{font-family:var(--mono);font-size:8pt;letter-spacing:.2em;color:var(--accent)}
+.hd h2{margin:0;font-size:21pt;font-weight:800;letter-spacing:-.035em;line-height:1.1}
+.hd .s{margin-left:auto;font-size:8.5pt;color:var(--ink-3);text-align:right;line-height:1.5;letter-spacing:-.01em}
+
+/* ---------- p1 cover ---------- */
+.cover{justify-content:space-between}
+.cover .top{font-family:var(--mono);font-size:8pt;letter-spacing:.22em;color:var(--ink-3);text-transform:uppercase}
+.cover h1{margin:0;font-size:64pt;font-weight:800;letter-spacing:-.05em;line-height:.88;text-transform:uppercase}
+.cover h1 em{font-style:normal;color:var(--accent)}
+.cover .kr{margin:4mm 0 0;font-size:15pt;font-weight:700;letter-spacing:-.03em}
+.cover .thesis{margin:9mm 0 0;font-size:22pt;font-weight:700;line-height:1.34;letter-spacing:-.04em;max-width:17em}
+.cover .thesis b{color:var(--accent);font-weight:800}
+.cover .rule{height:1.2pt;background:linear-gradient(90deg,var(--accent) 0 22%,var(--ink) 22%);margin:9mm 0 6mm}
+.cover .meta{display:grid;grid-template-columns:repeat(3,1fr);gap:6mm;font-size:9pt;line-height:1.6}
+.cover .meta .k{font-family:var(--mono);font-size:7.5pt;letter-spacing:.18em;color:var(--accent);
+  text-transform:uppercase;margin-bottom:2mm}
+.cover .meta b{font-weight:700}
+
+/* ---------- generic blocks ---------- */
+.grid4{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1pt solid var(--line)}
+.grid4 .c{padding:8mm;min-height:46mm;display:flex;flex-direction:column;justify-content:center;border-right:1pt solid var(--line);border-bottom:1pt solid var(--line)}
+.grid4 .c:nth-child(2n){border-right:0}
+.grid4 .c:nth-child(n+3){border-bottom:0}
+.grid4 .n{font-family:var(--mono);font-size:8pt;color:var(--accent);letter-spacing:.14em}
+.grid4 h3{margin:3mm 0 2.5mm;font-size:14pt;font-weight:800;letter-spacing:-.03em}
+.grid4 p{margin:0;font-size:9.5pt;line-height:1.62;color:var(--ink-2);letter-spacing:-.015em}
+
+.quote{padding-top:4mm}
+.quote p{margin:0;font-size:27pt;font-weight:800;letter-spacing:-.045em;line-height:1.22}
+.quote p em{font-style:normal;color:var(--accent)}
+.quote .src{margin-top:3mm;font-family:var(--mono);font-size:8pt;letter-spacing:.1em;color:var(--ink-3)}
+
+/* ---------- project page ---------- */
+.pj{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto 1fr auto auto;gap:7mm;flex:1}
+.pj .lead{grid-column:1/-1;font-size:12pt;font-weight:700;line-height:1.45;letter-spacing:-.03em;
+  color:var(--ink);margin:0 0 1mm;max-width:30em}
+.pj .role{grid-column:1/-1;font-family:var(--mono);font-size:8pt;letter-spacing:.14em;
+  color:var(--ink-3);text-transform:uppercase;margin-bottom:2mm}
+dl{margin:0;align-self:start}
+dl div{display:grid;grid-template-columns:22mm 1fr;gap:4mm;padding:3.2mm 0;border-top:1pt solid var(--line)}
+dl div:first-child{border-top:0;padding-top:0}
+dt{font-family:var(--mono);font-size:8pt;letter-spacing:.14em;color:var(--accent);text-transform:uppercase;padding-top:.6mm}
+dd{margin:0;font-size:9.5pt;line-height:1.62;color:var(--ink-2);letter-spacing:-.015em}
+dd b{color:var(--ink);font-weight:700}
+dd ul{margin:0;padding-left:4mm}
+dd li{margin-bottom:1.6mm}
+dd li:last-child{margin-bottom:0}
+
+figure{margin:0}
+figure img{width:100%;border:1px solid var(--line);filter:contrast(1.03)}
+figcaption{margin-top:2mm;font-family:var(--mono);font-size:7pt;letter-spacing:.08em;
+  color:var(--ink-3);text-transform:uppercase;line-height:1.5}
+
+.nums{grid-column:1/-1;display:flex;gap:10mm;border-top:1.2pt solid var(--ink);padding-top:4mm;margin-top:1mm}
+.nums .v{font-size:21pt;font-weight:800;letter-spacing:-.045em;line-height:1}
+.nums .v em{font-style:normal;color:var(--accent)}
+.nums .k{font-family:var(--mono);font-size:7.5pt;letter-spacing:.1em;color:var(--ink-3);
+  margin-top:1.8mm;text-transform:uppercase;line-height:1.4}
+
+.note{grid-column:1/-1;margin-top:auto;font-size:8.5pt;line-height:1.6;color:var(--ink-3);
+  border-left:1.4pt solid var(--accent);padding-left:4mm;letter-spacing:-.01em}
+.note b{color:var(--ink-2)}
+
+/* ---------- strip ---------- */
+.strip{margin-top:auto;border-top:1.2pt solid var(--ink);padding-top:4mm}
+.strip .row{display:grid;grid-template-columns:34mm 1fr;gap:5mm;padding:2.8mm 0;border-bottom:1pt solid var(--line)}
+.strip .row:last-child{border-bottom:0}
+.strip .t{font-size:10pt;font-weight:800;letter-spacing:-.03em}
+.strip .d{font-size:8.4pt;line-height:1.5;color:var(--ink-2);letter-spacing:-.015em}
+
+/* ---------- timeline ---------- */
+.tl{border-top:1pt solid var(--line)}
+.tl .r{display:grid;grid-template-columns:32mm 52mm 1fr;gap:5mm;padding:4.4mm 0;border-bottom:1pt solid var(--line);align-items:baseline}
+.tl .y{font-family:var(--mono);font-size:8pt;letter-spacing:.1em;color:var(--accent)}
+.tl .t{font-size:10pt;font-weight:700;letter-spacing:-.03em}
+.tl .d{font-size:9pt;color:var(--ink-2);line-height:1.55;letter-spacing:-.015em}
+
+.now{display:grid;grid-template-columns:1fr 1fr;gap:6mm;margin-top:7mm}
+.now article{border:1pt solid var(--line);background:var(--paper-2);padding:7mm;display:flex;flex-direction:column}
+.now .k{font-family:var(--mono);font-size:7.5pt;letter-spacing:.16em;color:var(--accent);text-transform:uppercase}
+.now h3{margin:2.5mm 0 1mm;font-size:13pt;font-weight:800;letter-spacing:-.035em;line-height:1.2}
+.now .sub{font-size:8.5pt;color:var(--ink-3);margin-bottom:3mm;letter-spacing:-.01em}
+.now ul{margin:0;padding-left:4mm;font-size:9pt;line-height:1.6;color:var(--ink-2);letter-spacing:-.015em}
+.now li{margin-bottom:1.6mm}
+.now figure{margin-top:auto;padding-top:4mm}
+.now figure img{height:34mm;object-fit:cover;object-position:center}
+
+/* ---------- proof ---------- */
+.proof{display:grid;grid-template-columns:repeat(2,1fr);border:1pt solid var(--line)}
+.proof article{padding:5mm 6mm;border-right:1pt solid var(--line);border-bottom:1pt solid var(--line)}
+.proof article:nth-child(2n){border-right:0}
+.proof article:nth-last-child(-n+1){border-bottom:0}
+.proof .k{font-family:var(--mono);font-size:7pt;letter-spacing:.16em;color:var(--accent);text-transform:uppercase}
+.proof h4{margin:2mm 0 1mm;font-size:11pt;font-weight:800;letter-spacing:-.03em;line-height:1.25}
+.proof p{margin:0;font-size:8.5pt;color:var(--ink-3);line-height:1.5;letter-spacing:-.01em}
+
+.evi{display:grid;grid-template-columns:repeat(3,1fr);gap:5mm;margin-top:6mm}
+.evi img{height:54mm;object-fit:contain;background:var(--paper-2);border:1px solid var(--line)}
+.contact{margin-top:auto;border-top:1.2pt solid var(--ink);padding-top:4mm;
+  display:flex;gap:10mm;flex-wrap:wrap;font-size:9pt}
+.contact .k{font-family:var(--mono);font-size:7.5pt;letter-spacing:.16em;color:var(--accent);
+  text-transform:uppercase;margin-bottom:1.5mm}
+.contact b{font-weight:700}
+
+
+.dp{border:1pt solid var(--line);background:var(--paper-2);padding:6mm;align-self:start}
+.dp h4{margin:0 0 4mm;font-family:var(--mono);font-size:7.5pt;letter-spacing:.16em;
+  color:var(--accent);text-transform:uppercase}
+.dp .r{display:grid;grid-template-columns:20mm 1fr;gap:4mm;padding:2.6mm 0;border-top:1pt solid var(--line)}
+.dp .r:first-of-type{border-top:0;padding-top:0}
+.dp .k{font-size:8.5pt;color:var(--ink-3);letter-spacing:-.01em}
+.dp .v{font-size:9.5pt;line-height:1.5;letter-spacing:-.015em}
+.dp .v b{font-weight:700}
+
+.pg.spread{justify-content:space-between}
+.vw{margin:5mm 0 0}
+.vw img{width:100%;border:1px solid var(--line)}
+.vw figcaption{margin-top:2.5mm;font-family:var(--mono);font-size:7pt;letter-spacing:.06em;
+  color:var(--ink-3);text-transform:none;line-height:1.6}
+@media print{
+  @page{size:A4;margin:0}
+  html,body{background:var(--paper)}
+  .pg{margin:0;break-after:page;box-shadow:none}
+  .pg:last-child{break-after:auto}
+  body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════ 1 ══════════ -->
+<section class="pg cover" data-n="01 / 08" data-t="오준상 Portfolio 2026">
+  <span class="ghost">01</span>
+  <div class="top">오준상 · Junsang Oh &nbsp;—&nbsp; Portfolio 2026</div>
+  <div>
+    <h1>Junsang<br>Oh<em>.</em></h1>
+    <p class="kr">오준상 · 사람의 선택을 움직이는 AI PO</p>
+    <p class="thesis">보게 만드는 것에서,<br><b>움직이게 만드는 것</b>으로.</p>
+    <div class="rule"></div>
+    <div class="meta">
+      <div><div class="k">전공</div><b>중앙대학교</b><br>미디어커뮤니케이션 본전공<br>도시계획·부동산 복수전공</div>
+      <div><div class="k">질문</div><b>사람들이 '선택'하는 이유</b><br>무엇을 보고, 어떤 감정을 느끼며,<br>왜 하나의 선택에 이르는지</div>
+      <div><div class="k">현재</div><b>2026 Google Student Ambassador</b><br>Toss Foreigner Bridge Crew 2기<br>개인 프로젝트 neural-flow</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 2 ══════════ -->
+<section class="pg spread" data-n="02 / 08" data-t="관점">
+  <span class="ghost">02</span>
+  <div class="hd"><span class="n">01</span><h2>보게 만드는 것에서,<br>움직이게 만드는 것으로</h2>
+    <span class="s">미디어와 공간과 AI가<br>한 사람의 일인 이유</span></div>
+
+  <p class="lead" style="margin:0 0 7mm;font-size:12pt;font-weight:700;line-height:1.5;letter-spacing:-.03em;max-width:32em">
+    넘치는 정보를 보여주는 데서 끝나지 않고, 사람의 상황을 읽어 다음 행동까지 돕는 서비스.</p>
+
+  <div class="grid4">
+    <div class="c"><span class="n">①</span><h3>질문</h3>
+      <p>사람이 무엇을 보고 어떤 감정을 느끼며 왜 하나의 선택에 이르는지, 오래전부터 품어 온 궁금증.</p></div>
+    <div class="c"><span class="n">②</span><h3>미디어</h3>
+      <p>사람의 감정과 행동을 들여다본 전공. 시선을 붙잡는 법을 익힌 콘텐츠 작업.</p></div>
+    <div class="c"><span class="n">③</span><h3>공간</h3>
+      <p>그 선택이 만들어지는 현실의 조건. 도시계획·부동산에서 배운 데이터와 법, 지역 가치의 형성.</p></div>
+    <div class="c"><span class="n">④</span><h3>AI</h3>
+      <p>관심을 질문에서 제품으로 옮겨 놓은 도구. 상상하던 서비스의 직접 구현.</p></div>
+  </div>
+
+  <div class="quote">
+    <p>기술은 사람이 이해하고 납득하며<br><em>움직일 수 있을 때</em> 비로소 가치.</p>
+    <div class="src">대신 판단하는 제품이 아니라, 스스로 납득하게 돕는 제품 · 아래 네 사례의 공통 기준</div>
+  </div>
+</section>
+
+<!-- ══════════ 3 ══════════ -->
+<section class="pg" data-n="03 / 08" data-t="AdGuard">
+  <span class="ghost">03</span>
+  <div class="hd"><span class="n">02</span><h2>AdGuard</h2>
+    <span class="s">판정이 아니라<br>다음 문장</span></div>
+  <div class="pj">
+    <p class="lead">위반 통보를 받고도 다음 문장을 쓰지 못해 멈추는 실무. 근거와 대안을 함께 주는 방식으로 푼 검수 서비스.</p>
+    <div class="role">팀장 · PM · 문제정의 — Microsoft AI School 9기 2차</div>
+    <dl>
+      <div><dt>문제</dt><dd>'바르는 보톡스'처럼 의약품으로 오인시키는 화장품 광고 표현. 판정에서 끝나는 도구와 그 뒤에 남는 정지.</dd></div>
+      <div><dt>판단</dt><dd>마케터에게 판정보다 <b>바로 쓸 다음 문장</b>이 먼저 필요. 탐지는 끝이 아니라 시작.</dd></div>
+      <div><dt>설계</dt><dd>탐지 → 근거검색 → 판정 → 대안생성 → <b>재검증</b>의 5단계. 생성한 대안을 한 번 더 검수하는 마지막 단계가 이 설계의 차이.</dd></div>
+      <div><dt>데이터</dt><dd>길이로 자르면서 끊어진 법령 조항. <b>의미 경계에 맞춘 청크 재정리</b>에 쓴 시간.</dd></div>
+      <div><dt>팀</dt><dd>수집 범위와 검수 단계의 정의, 그리고 결과물 통합을 위한 인터페이스의 선확정.</dd></div>
+    </dl>
+    <figure>
+      <img src="assets/img/adguard-01.jpg" alt="AdGuard 서비스 화면">
+      <figcaption>저장소의 프론트엔드를 직접 실행한 화면<br>github.com/PhrenO0/MS_AI_2nd_Adguard</figcaption>
+    </figure>
+    <div class="nums">
+      <div><div class="v">1,069</div><div class="k">법령 근거 조각</div></div>
+      <div><div class="v">5<em>단계</em></div><div class="k">탐지 → 재검증</div></div>
+      <div><div class="v">팀장</div><div class="k">2차 프로젝트 리딩</div></div>
+    </div>
+    <div class="note">AI가 <b>판정만 내리지 않고 근거와 대안을 함께</b> 내놓을 때 사용자가 다음 행동으로 넘어간다는 것을 확인한 사례.</div>
+  </div>
+</section>
+
+<!-- ══════════ 4 ══════════ -->
+<section class="pg" data-n="04 / 08" data-t="회랑">
+  <span class="ghost">04</span>
+  <div class="hd"><span class="n">03</span><h2>회랑</h2>
+    <span class="s">의미 구조를<br>걸어 다니는 공간으로</span></div>
+  <div class="pj">
+    <p class="lead">학습 자료의 의미 구조를 3D 공간으로 옮기고, 그 안을 1인칭으로 걸으며 외우는 도구.</p>
+    <div class="role">3D 엔진 &amp; UI/UX — Microsoft AI School 9기 3차 · 7인팀</div>
+    <dl>
+      <div><dt>시작</dt><dd>공간이 기억에 유리하다는 원리. 설명에서 멈추지 않고 <b>화면에서 작동시키는 것</b>이 내 몫.</dd></div>
+      <div><dt>첫 수정</dt><dd>도로변에 떠 있던 한옥 10개 대신 이미 아는 실제 랜드마크의 위경도 좌표. <b>익숙함과 변별성</b>을 기준으로 삼은 교체.</dd></div>
+      <div><dt>자원 배분</dt><dd>며칠을 파고든 끝에 확인한 사용자의 요구는 예쁜 렌더가 아니라 <b>'가구가 실제로 어디 있는가'</b>. 화질을 낮추고 좌표 정확도로 자원 집중.</dd></div>
+      <div><dt>동선</dt><dd>검출 순서대로 매겨져 방을 가로지르던 마커 번호를 실제로 한 바퀴 도는 <b>걷는 순서</b>로 재정렬.</dd></div>
+      <div><dt>배치</dt><dd>의미가 가까운 개념은 같은 방에, 헷갈리는 개념은 먼 방에. <b>의미의 거리를 공간의 거리로</b> 옮긴 번역.</dd></div>
+    </dl>
+    <div>
+      <figure style="margin-bottom:4mm">
+        <img src="assets/img/hoerang-01.jpg" alt="회랑 1인칭 워크스루">
+        <figcaption>1인칭 공간 학습 화면</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/img/hoerang-04.jpg" alt="마커 동선 설명">
+        <figcaption>마커 번호 = 걷는 순서<br>저장소 docs/ui 실제 화면</figcaption>
+      </figure>
+    </div>
+    <div class="nums">
+      <div><div class="v">235</div><div class="k">3D·프론트 커밋 · 팀 내 최다</div></div>
+      <div><div class="v">5<em>곳</em></div><div class="k">광화문 입구 좌표</div></div>
+      <div><div class="v">라이브</div><div class="k">실제 배포까지 완료</div></div>
+    </div>
+    <div class="note">AI가 틀릴 수 있음을 숨기지 않고 <b>사용자가 직접 고치는 검수 구조</b>를 함께 설계.
+      담당 범위는 3D 엔진과 UI/UX이며 GraphRAG 구축과 검색은 팀 동료의 몫. 가구 검출 84%·73%는 기준 GLB 모델에서 Azure AI Vision이 낸 값.</div>
+  </div>
+</section>
+
+<!-- ══════════ 5 ══════════ -->
+<section class="pg" data-n="05 / 08" data-t="CENTRALCOURT">
+  <span class="ghost">05</span>
+  <div class="hd"><span class="n">04</span><h2>CENTRALCOURT</h2>
+    <span class="s">집과 지역을 고를 때<br>실제로 따지는 것</span></div>
+  <div class="pj">
+    <p class="lead">잠실 도심형 고급 실버타운 사업계획. 입지와 의료와 교통 데이터를 고령층이 실제로 따지는 기준으로 옮기는 작업.</p>
+    <div class="role">배경·필요성 · 부지/입지 분석 · 경쟁 벤치마킹 · 발표 — 부동산시장분석론</div>
+    <dl>
+      <div><dt>문제</dt><dd>자료의 나열만으로는 움직이지 않는 의사결정. 지표와 구매자의 판단 기준 사이에 남은 거리.</dd></div>
+      <div><dt>번역</dt><dd><b>"역까지 몇 분, 병원까지 몇 분, 자녀가 오기까지 몇 정거장"</b>으로 바꿔 쓴 서술.</dd></div>
+      <div><dt>비교</dt><dd>경쟁 6곳 벤치마킹과 '더 클래식 500' 대조에서 뽑아낸 차별점.</dd></div>
+      <div><dt>가격</dt><dd>분양가 상한제 적용 시 시세 대비 <b>4~6억 낮은</b> 가격 구조의 확인.</dd></div>
+      <div><dt>연결</dt><dd>집과 지역이라는, 가장 되돌리기 어려운 선택에 근거를 붙여 본 첫 실습.</dd></div>
+    </dl>
+    <div class="dp">
+      <h4>부지 · 입지 요약</h4>
+      <div class="r"><div class="k">부지</div><div class="v"><b>잠실래미안아이파크</b><br>27,000㎡ · 2,678세대</div></div>
+      <div class="r"><div class="k">계획</div><div class="v">RIVER · FOREST · LAKE <b>3개 동</b><br>A타입 135세대 + B타입 75세대 · 중정형</div></div>
+      <div class="r"><div class="k">교통</div><div class="v">2·8·9호선 <b>트리플 역세권</b></div></div>
+      <div class="r"><div class="k">의료</div><div class="v">서울아산 · 삼성서울 · 강동경희<br><b>대형병원 3곳</b> 접근권</div></div>
+      <div class="r"><div class="k">차별</div><div class="v">서울아산병원 <b>MOU</b></div></div>
+      <figure style="margin-top:5mm"><img src="assets/img/centralcourt.jpg" alt="CENTRALCOURT 계획안">
+        <figcaption>계획안 — 중정형 3개 동 구성</figcaption></figure>
+    </div>
+    <div class="nums">
+      <div><div class="v">27,000<em>㎡</em></div><div class="k">대상 부지</div></div>
+      <div><div class="v">3<em>곳</em></div><div class="k">대형병원 접근권</div></div>
+      <div><div class="v">210<em>세대</em></div><div class="k">계획 규모 · 3개 동</div></div>
+      <div><div class="v">6<em>곳</em></div><div class="k">경쟁 벤치마킹</div></div>
+    </div>
+    <div class="note">팀 프로젝트. 경쟁 분석과 리스크 검토는 팀원 담당이며 위 항목이 직접 맡은 범위.</div>
+  </div>
+</section>
+
+<!-- ══════════ 6 ══════════ -->
+<section class="pg" data-n="06 / 08" data-t="실행력">
+  <span class="ghost">06</span>
+  <div class="hd"><span class="n">05</span><h2>직접 만들고, 끝까지 내보내기</h2>
+    <span class="s">개인 프로젝트와<br>콘텐츠 이력</span></div>
+  <div class="pj" style="flex:0 0 auto">
+    <p class="lead">기획에서 멈추지 않고 배포까지 끌고 간 개인 도구, 그리고 사람의 시선을 붙잡아 온 제작 이력.</p>
+    <div class="role">neural-flow — 기획 · 개발 · 배포 전 과정 단독 · 2026 —</div>
+    <dl>
+      <div><dt>문제</dt><dd>아이디어가 늘수록 무너지던 실행. 할 일은 쌓였는데 <b>지금 무엇 하나를 끝내야 하는지</b>가 보이지 않던 상태.</dd></div>
+      <div><dt>판단</dt><dd>의지력에 기대는 시스템의 취약함. 기능을 더하는 대신 <b>선택지를 줄이는</b> 쪽.</dd></div>
+      <div><dt>구조</dt><dd>할 일과 이유는 노션에, 실행 시간은 구글 캘린더에, 둘의 연결과 판단은 파이썬 에이전트가 맡는 3단 구성.</dd></div>
+      <div><dt>기능</dt><dd>오늘 끝낼 한 가지의 상시 노출 · 경험 기록을 검색해 만드는 자기소개서 초안 · 매일 오전 7시 자동 브리핑. 최종 판단은 사람의 몫으로 남김.</dd></div>
+    </dl>
+    <figure>
+      <img src="assets/img/neuralflow-01.jpg" alt="neural-flow 대시보드">
+      <figcaption>저장소의 대시보드 생성 코드를 직접 실행한 화면<br>github.com/PhrenO0/my-curator · neural-flow</figcaption>
+    </figure>
+  </div>
+
+  <figure class="vw">
+    <img src="assets/img/video-works.jpg" alt="유튜브 채널의 영상 작업 3편">
+    <figcaption>영상 작업 — A.INUS 본상작 'Every Masterpiece Needs Wings' · 무신사 광고제 출품작 '피드백샌드백' · 2026 대한민국 AI 콘텐츠 페스티벌 KAiCF 출품작 '신데렐라의 바삭한 선택' &nbsp;/&nbsp; youtube.com/@별이바람에스치듯</figcaption>
+  </figure>
+
+  <div class="strip">
+    <div class="row"><div class="t">피드백샌드백</div>
+      <div class="d">무신사 「26 여름 무진장 AI 광고제」 출품작. 렌더 퀄리티 정면승부 대신 전장을 바꾼 20초 숏폼. '줄여'의 중의성과 키비주얼 80% 축소의 결합, 기획 역할을 나눈 AI 에이전트 구성, 생성 이미지 선별 도구의 자체 제작. <b>출품·공개 게시(미수상)</b></div></div>
+    <div class="row"><div class="t">A.INUS</div>
+      <div class="d">명화와 레드불을 엮은 생성형 AI 광고 'Every Masterpiece Needs Wings'. 아이디어·시놉시스·프롬프트 설계와 결과물 선별. 단계마다 통과 기준을 먼저 정해 마감을 지킨 방식. <b>2025 A.INUS 광고 공모전 영상 부문 본상</b></div></div>
+    <div class="row"><div class="t">E-Nudge</div>
+      <div class="d">차단이 아닌 공감형 넛지. 게시 직전 한 번 멈칫하는 순간의 설계와 이미지 데이터 수집. 최종 선택은 사용자에게 남기는 구조. <b>Microsoft AI School 9기 1차 평가 1위</b></div></div>
+    <div class="row"><div class="t">나는샬롬 · 영상팀</div>
+      <div class="d">연애 리얼리티 포맷을 빌린 수련회 홍보 2부작(22씬). 영상팀장으로 기획·섭외·연출·편집 전 과정. 청년부 채널 게시물 515건 운영과 AI 영상 제작.</div></div>
+  </div>
+</section>
+
+<!-- ══════════ 7 ══════════ -->
+<section class="pg spread" data-n="07 / 08" data-t="여정 · 현재">
+  <span class="ghost">07</span>
+  <div class="hd"><span class="n">06</span><h2>보는 법에서 만드는 법으로</h2>
+    <span class="s">콘텐츠 → AI 제품 개발<br>→ 서비스 기획 실무</span></div>
+
+  <div class="tl">
+    <div class="r"><div class="y">2022</div><div class="t">남양주 지방선거 캠프 콘텐츠팀</div>
+      <div class="d">기획·촬영·제작으로 약 15개 콘텐츠. 숏폼 1개 최고 조회수 약 10만.</div></div>
+    <div class="r"><div class="y">2025.03</div><div class="t">금융사관학교 국제경제전문가과정</div>
+      <div class="d">제68기 수료. 기획에 필요한 경제·금융 도메인의 확장.</div></div>
+    <div class="r"><div class="y">2025.04 — 11</div><div class="t">한국장학재단 사회리더 멘토링</div>
+      <div class="d">멘티로 약 8개월 참여 후 수료.</div></div>
+    <div class="r"><div class="y">2025</div><div class="t">A.INUS 본상 · 구리시 우수상 · 시퓨즈</div>
+      <div class="d">사람의 시선을 붙잡는 법을 익힌 구간. 고등학생 멘티와 3박 4일 단편영화 완성.</div></div>
+    <div class="r"><div class="y">2025.12.29<br>— 2026.06.25</div><div class="t">Microsoft AI School 9기 수료</div>
+      <div class="d">E-Nudge(1차·평가 1위) → AdGuard(2차·팀장) → 회랑(3차·최종). AI 제품을 만드는 구체적인 방법과 협업을 익힌 6개월.</div></div>
+    <div class="r"><div class="y">2026.05</div><div class="t">Microsoft Azure AI Fundamentals</div>
+      <div class="d">2026.05.18 발급.</div></div>
+    <div class="r"><div class="y">2026</div><div class="t">KDT 해커톤</div>
+      <div class="d">현업 PO 멘토링을 받으며 익힌 실제 서비스 기획. 배운 것을 실무 맥락으로 옮긴 첫 자리.</div></div>
+  </div>
+
+  <div class="now">
+    <article>
+      <span class="k">활동 중</span>
+      <h3>2026 Google Student Ambassador</h3>
+      <div class="sub">#TeamGemini · 킥오프 2026.08.06</div>
+      <ul>
+        <li>국내 대학생 대상 Gemini 확산·마케팅 앰배서더</li>
+        <li>활동 기간 2026.08 — 12 (5개월)</li>
+        <li>대기업의 제품 마케팅 방식을 배우고 적용하는 중</li>
+      </ul>
+      <figure><img src="assets/img/gsa-kickoff.jpg" alt="Team Gemini 킥오프"><figcaption>#TeamGemini 킥오프 현장</figcaption></figure>
+    </article>
+    <article>
+      <span class="k">활동 중</span>
+      <h3>Toss Foreigner Bridge Crew 2기</h3>
+      <div class="sub">발대식 참여 · 활동 2026.08 — 09</div>
+      <ul>
+        <li>재한 외국인·유학생 대상 실무 프로젝트형 마케팅</li>
+        <li>토스 관광카드 콘텐츠의 기획·제작·배포</li>
+        <li>토스 실무자 멘토링 · 수료증 2026.09.12 발급 예정</li>
+      </ul>
+      <figure><img src="assets/img/toss-fbc.jpg" alt="Toss Foreigner Bridge Crew 발대식"><figcaption>Toss Foreigner Bridge Crew 발대식</figcaption></figure>
+    </article>
+  </div>
+</section>
+
+<!-- ══════════ 8 ══════════ -->
+<section class="pg spread" data-n="08 / 08" data-t="증명 · 연락">
+  <span class="ghost">08</span>
+  <div class="hd"><span class="n">07</span><h2>증명</h2>
+    <span class="s">수상 · 수료 · 자격<br>부풀리지 않은 범위</span></div>
+
+  <div class="proof">
+    <article><span class="k">수상</span><h4>2025 구리시 숏폼 영상 공모전 우수상</h4>
+      <p>개인 기획·제작 '구리 청년의 내일' · 구리시 공고 제2025-1480호 (2025.9)</p></article>
+    <article><span class="k">평가 1위</span><h4>Microsoft AI School 9기 1차 프로젝트 평가 1위</h4>
+      <p>E-Nudge — 공감형 넛지 설계</p></article>
+    <article><span class="k">본상</span><h4>2025 A.INUS 광고 공모전 영상 부문 본상</h4>
+      <p>'Every Masterpiece Needs Wings' · 제2025-22호 · ㈜이너스커뮤니티 (2025.11.07)</p></article>
+    <article><span class="k">수료</span><h4>Microsoft AI School 9기</h4>
+      <p>훈련기간 2025.12.29 — 2026.06.25 · 증서 MSA-926062</p></article>
+    <article><span class="k">수료</span><h4>금융사관학교 국제경제전문가과정</h4>
+      <p>제68기 · ㈜금융사관학교 (2025.3)</p></article>
+    <article><span class="k">수료</span><h4>한국장학재단 사회리더 멘토링</h4>
+      <p>멘티로 약 8개월(2025.4 — 11) 참여 후 수료</p></article>
+    <article><span class="k">자격</span><h4>Microsoft Azure AI Fundamentals</h4>
+      <p>Microsoft · 2026.05.18 발급</p></article>
+    <article><span class="k">발급 예정</span><h4>Toss Foreigner Bridge Crew 2기</h4>
+      <p>수료증 2026.09.12 발급 예정 · 현재 활동 중</p></article>
+  </div>
+
+  <div class="evi">
+    <figure><img src="assets/img/azure-cert.jpg" alt="Azure AI Fundamentals 자격 증빙"><figcaption>Microsoft Azure AI Fundamentals</figcaption></figure>
+    <figure><img src="assets/img/msai-cert.jpg" alt="Microsoft AI School 9기 수료증"><figcaption>Microsoft AI School 9기 수료증</figcaption></figure>
+    <figure><img src="assets/img/ainus-cert.jpg" alt="A.INUS 광고 공모전 본상 상장"><figcaption>2025 A.INUS 광고 공모전 영상 부문 본상</figcaption></figure>
+  </div>
+
+  <div class="contact">
+    <div><div class="k">GitHub</div><b>github.com/PhrenO0</b></div>
+    <div><div class="k">기록</div><b>blog.naver.com/mindpd0219</b></div>
+    <div><div class="k">영상</div><b>youtube.com/@별이바람에스치듯</b></div>
+    <div><div class="k">웹 포트폴리오</div><b>phreno0.github.io/myportfolio</b></div>
+  </div>
+</section>
+
+<script>
+// 준비되지 않은 증빙 이미지는 자리를 비우지 않고 통째로 제거
+document.querySelectorAll('figure img').forEach(function (im) {
+  im.addEventListener('error', function () { im.closest('figure').remove(); });
+});
+</script>
+</body>
+</html>
