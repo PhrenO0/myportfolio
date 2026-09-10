@@ -69,7 +69,7 @@ img{display:block;max-width:100%}
   color:var(--ink);margin:0 0 1mm;max-width:30em}
 .pj .role{grid-column:1/-1;font-family:var(--mono);font-size:8pt;letter-spacing:.14em;
   color:var(--ink-3);text-transform:uppercase;margin-bottom:2mm}
-dl{margin:0}
+dl{margin:0;align-self:start}
 dl div{display:grid;grid-template-columns:22mm 1fr;gap:4mm;padding:3.2mm 0;border-top:1pt solid var(--line)}
 dl div:first-child{border-top:0;padding-top:0}
 dt{font-family:var(--mono);font-size:8pt;letter-spacing:.14em;color:var(--accent);text-transform:uppercase;padding-top:.6mm}
@@ -126,7 +126,7 @@ figcaption{margin-top:2mm;font-family:var(--mono);font-size:7pt;letter-spacing:.
 .proof h4{margin:2mm 0 1mm;font-size:11pt;font-weight:800;letter-spacing:-.03em;line-height:1.25}
 .proof p{margin:0;font-size:8.5pt;color:var(--ink-3);line-height:1.5;letter-spacing:-.01em}
 
-.evi{display:grid;grid-template-columns:1fr 1fr;gap:6mm;margin-top:6mm}
+.evi{display:grid;grid-template-columns:repeat(3,1fr);gap:5mm;margin-top:6mm}
 .contact{margin-top:auto;border-top:1.4pt solid var(--ink);padding-top:4mm;
   display:flex;gap:10mm;flex-wrap:wrap;font-size:9pt}
 .contact .k{font-family:var(--mono);font-size:7.5pt;letter-spacing:.16em;color:var(--accent);
@@ -134,7 +134,7 @@ figcaption{margin-top:2mm;font-family:var(--mono);font-size:7pt;letter-spacing:.
 .contact b{font-weight:700}
 
 
-.dp{border:1pt solid var(--line);background:var(--paper-2);padding:6mm}
+.dp{border:1pt solid var(--line);background:var(--paper-2);padding:6mm;align-self:start}
 .dp h4{margin:0 0 4mm;font-family:var(--mono);font-size:7.5pt;letter-spacing:.16em;
   color:var(--accent);text-transform:uppercase}
 .dp .r{display:grid;grid-template-columns:20mm 1fr;gap:4mm;padding:2.6mm 0;border-top:1pt solid var(--line)}
@@ -247,14 +247,18 @@ figcaption{margin-top:2mm;font-family:var(--mono);font-size:7pt;letter-spacing:.
     <div class="dp">
       <h4>부지 · 입지 요약</h4>
       <div class="r"><div class="k">부지</div><div class="v"><b>잠실래미안아이파크</b><br>27,000㎡ · 2,678세대</div></div>
+      <div class="r"><div class="k">계획</div><div class="v">RIVER · FOREST · LAKE <b>3개 동</b><br>A타입 135세대 + B타입 75세대 · 중정형</div></div>
       <div class="r"><div class="k">교통</div><div class="v">2·8·9호선 <b>트리플 역세권</b></div></div>
       <div class="r"><div class="k">의료</div><div class="v">서울아산 · 삼성서울 · 강동경희<br><b>대형병원 3곳</b> 접근권</div></div>
       <div class="r"><div class="k">차별</div><div class="v">서울아산병원 <b>MOU</b></div></div>
-      <div class="r"><div class="k">문서</div><div class="v">부지·입지 분석 원문 직접 작성<br>github.com/PhrenO0/myportfolio</div></div>
+      <div class="r"><div class="k">문서</div><div class="v">부지·입지 분석 원문 직접 작성</div></div>
+      <figure style="margin-top:5mm"><img src="assets/img/centralcourt.jpg" alt="CENTRALCOURT 계획안">
+        <figcaption>계획안 — 중정형 3개 동 구성</figcaption></figure>
     </div>
     <div class="nums">
       <div><div class="v">27,000<em>㎡</em></div><div class="k">대상 부지</div></div>
       <div><div class="v">3<em>곳</em></div><div class="k">대형병원 접근권</div></div>
+      <div><div class="v">210<em>세대</em></div><div class="k">계획 규모 · 3개 동</div></div>
       <div><div class="v">6<em>곳</em></div><div class="k">경쟁 벤치마킹</div></div>
     </div>
     <div class="note">팀 프로젝트. 경쟁 분석과 리스크 검토는 팀원 담당이며 위 항목이 직접 맡은 범위.</div>
@@ -313,7 +317,7 @@ figcaption{margin-top:2mm;font-family:var(--mono);font-size:7pt;letter-spacing:.
     <div class="row"><div class="t">E-Nudge</div>
       <div class="d">차단이 아닌 공감형 넛지. 게시 직전 한 번 멈칫하는 순간의 설계와 이미지 데이터 수집. <b>Microsoft AI School 9기 1차 평가 1위</b></div></div>
     <div class="row"><div class="t">A.INUS</div>
-      <div class="d">명화와 레드불을 엮은 생성형 AI 광고. 아이디어·시놉시스·프롬프트 설계와 결과물 선별을 맡아, 단계마다 통과 기준을 먼저 정하는 방식으로 마감을 지킴. <b>콘텐츠 공모전 팀 수상</b></div></div>
+      <div class="d">명화와 레드불을 엮은 생성형 AI 광고 'Every Masterpiece Needs Wings'. 아이디어·시놉시스·프롬프트 설계와 결과물 선별을 맡아, 단계마다 통과 기준을 먼저 정하는 방식으로 마감을 지킴. <b>2025 A.INUS 광고 공모전 영상 부문 본상</b></div></div>
     <div class="row"><div class="t">나는샬롬 · 영상팀</div>
       <div class="d">연애 리얼리티 포맷을 빌린 수련회 홍보 2부작(22씬). 영상팀장으로 기획·섭외·연출·편집 전 과정. 청년부 채널 게시물 515건 운영과 AI 영상 제작.</div></div>
   </div>
@@ -335,7 +339,7 @@ figcaption{margin-top:2mm;font-family:var(--mono);font-size:7pt;letter-spacing:.
       <div class="d">고등학생 멘티와 3박 4일 단편영화 완성. 유학생 심층 인터뷰로 구조화한 문제의 학부 발표.</div></div>
     <div class="r"><div class="y">2025.09</div><div class="t">구리시 숏폼 영상 공모전 우수상</div>
       <div class="d">개인 기획·제작 '구리 청년의 내일'. 구리시 공고 제2025-1480호.</div></div>
-    <div class="r"><div class="y">2025.12 — 2026.06</div><div class="t">Microsoft AI School 9기 수료</div>
+    <div class="r"><div class="y">2025.12.29<br>— 2026.06.25</div><div class="t">Microsoft AI School 9기 수료</div>
       <div class="d">E-Nudge(1차·평가 1위) → AdGuard(2차·팀장) → 회랑(3차·최종). 쓰는 AI에서 만드는 AI로 넘어온 구간.</div></div>
     <div class="r"><div class="y">2026.05</div><div class="t">Microsoft Azure AI Fundamentals</div>
       <div class="d">2026.05.18 발급.</div></div>
@@ -377,10 +381,10 @@ figcaption{margin-top:2mm;font-family:var(--mono);font-size:7pt;letter-spacing:.
       <p>개인 기획·제작 '구리 청년의 내일' · 구리시 공고 제2025-1480호 (2025.9)</p></article>
     <article><span class="k">평가 1위</span><h4>Microsoft AI School 9기 1차 프로젝트 평가 1위</h4>
       <p>E-Nudge — 공감형 넛지 설계</p></article>
-    <article><span class="k">팀 수상</span><h4>A.INUS — Masterpiece Needs Wings</h4>
-      <p>명화 × 레드불 생성형 AI 광고 · 콘텐츠 공모전 팀 수상</p></article>
+    <article><span class="k">본상</span><h4>2025 A.INUS 광고 공모전 영상 부문 본상</h4>
+      <p>'Every Masterpiece Needs Wings' · 제2025-22호 · ㈜이너스커뮤니티 (2025.11.07)</p></article>
     <article><span class="k">수료</span><h4>Microsoft AI School 9기</h4>
-      <p>2025.12 — 2026.06 · 3개 팀 프로젝트 수행</p></article>
+      <p>훈련기간 2025.12.29 — 2026.06.25 · 증서 MSA-926062</p></article>
     <article><span class="k">수료</span><h4>금융사관학교 국제경제전문가과정</h4>
       <p>제68기 · ㈜금융사관학교 (2025.3)</p></article>
     <article><span class="k">수료</span><h4>한국장학재단 사회리더 멘토링</h4>
@@ -394,6 +398,7 @@ figcaption{margin-top:2mm;font-family:var(--mono);font-size:7pt;letter-spacing:.
   <div class="evi">
     <figure><img src="assets/img/azure-cert.jpg" alt="Azure AI Fundamentals 자격 증빙"><figcaption>Microsoft Azure AI Fundamentals</figcaption></figure>
     <figure><img src="assets/img/msai-cert.jpg" alt="Microsoft AI School 9기 수료증"><figcaption>Microsoft AI School 9기 수료증</figcaption></figure>
+    <figure><img src="assets/img/ainus-cert.jpg" alt="A.INUS 광고 공모전 본상 상장"><figcaption>2025 A.INUS 광고 공모전 영상 부문 본상</figcaption></figure>
   </div>
 
   <div class="contact">
