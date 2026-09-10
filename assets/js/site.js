@@ -87,6 +87,19 @@
   document.querySelector('.case__close button').addEventListener('click', closeCase);
   addEventListener('keydown', function (e) { if (e.key === 'Escape') closeCase(); });
 
+  /* ---------------- print: expand case studies + keywords ---------------- */
+  (function () {
+    var host = document.querySelector('.print-cases');
+    if (!host) return;
+    ['nf', 'ag', 'hr', 'ms'].forEach(function (id) {
+      var t = document.getElementById('case-' + id);
+      if (!t) return;
+      var a = document.createElement('article');
+      a.innerHTML = t.innerHTML;
+      host.appendChild(a);
+    });
+  })();
+
   /* ---------------- hero particle field ---------------- */
   (function () {
     var c = document.querySelector('.hero__canvas'); if (!c || reduce) return;

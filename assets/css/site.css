@@ -309,3 +309,80 @@ footer{padding:34px var(--gut) 46px;border-top:1px solid var(--line);
   .rv{opacity:1;transform:none}
   .hero h1 .ln>span{transform:none}
 }
+
+/* =========================================================
+   PRINT / PDF
+   화면과 같은 내용을 A4 흐름으로. 케이스 스터디 4편 포함.
+   ========================================================= */
+.print-only{display:none}
+
+@media print{
+  :root{--gut:13mm}
+  @page{size:A4;margin:0}
+
+  html,body{background:var(--ink)!important;color:var(--paper)!important}
+  body{font-size:10.5pt;line-height:1.6;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+
+  /* 화면 전용 장치 제거 */
+  .pre,.grain,.progress,.cursor,.cursor-ring,.bar,.hero__canvas,
+  .field,.filters,.work__acts,.case{display:none!important}
+
+  .print-only{display:block}
+  .rv{opacity:1!important;transform:none!important}
+  a{text-decoration:none}
+  a[href^="http"]::after{content:" (" attr(href) ")";font-family:var(--mono);font-size:7pt;
+    color:var(--muted);word-break:break-all}
+  .links a[href^="http"]::after,.btn::after{content:""}
+
+  /* 페이지 흐름 */
+  section{padding-block:11mm;break-before:auto}
+  #work,#proof{break-before:page}
+  .hero{min-height:auto;padding-block:16mm 10mm;break-after:page;display:block}
+  .hero h1{font-size:52pt}
+  .hero h1 .ln>span{transform:none!important}
+  .hero__thesis{grid-template-columns:1fr 1fr;gap:8mm}
+  .marq{display:none}
+  #thesis{break-before:avoid}
+
+  .sec-head{margin-bottom:8mm;padding-bottom:4mm}
+  .sec-head h2{font-size:22pt}
+  .pull{font-size:20pt;margin-top:10mm}
+
+  /* 조각 깨짐 방지 */
+  .tcell,.proof article,.tl__row,.step,.stack div,.cert,.honest,
+  .work__media,.case__shots figure{break-inside:avoid}
+  .work{break-inside:avoid;gap:7mm;margin-bottom:9mm;align-items:start;
+    grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}
+  .work__media .shot{white-space:normal;font-size:7pt;letter-spacing:.06em}
+  .work:nth-child(even) .work__media{order:0}
+  .works{gap:0}
+  .work__media img{filter:none}
+  .work__body h3{font-size:19pt}
+  .work__body .desc{font-size:10pt;line-height:1.65}
+  .metric .v{font-size:15pt}
+
+  /* 인쇄용 케이스 스터디 */
+  .print-cases{display:block}
+  .print-cases>article{break-before:page;padding-top:14mm}
+  .print-cases h3{margin:0 0 4mm;font-size:26pt;line-height:1.02;letter-spacing:-.04em;font-weight:800}
+  .print-cases .sub{font-family:var(--mono);font-size:8pt;letter-spacing:.16em;color:var(--muted);text-transform:uppercase}
+  .print-cases .step{padding:5mm 0}
+  .print-cases .step .bd{font-size:10pt;line-height:1.7}
+  .print-cases .case__shots{grid-template-columns:repeat(2,1fr);margin-top:7mm}
+
+  .field-print{margin:0;font-size:12pt;line-height:2;color:var(--paper-dim);letter-spacing:-.02em}
+  .field-print b{color:var(--paper)}
+  footer{break-inside:avoid;padding:8mm var(--gut)}
+}
+
+/* ---- 인쇄 밝은 판 (제출용) ---- */
+.pl{
+  --ink:#f4f1ea;--ink-2:#eae6dd;--ink-3:#e2ddd2;
+  --paper:#141416;--paper-dim:#4a463f;--muted:#87827a;
+  --accent:#c8401a;--accent-dim:#a33314;
+  --line:rgba(20,20,22,.2);--line-soft:rgba(20,20,22,.1);
+}
+.pl .work__media.is-type{background:linear-gradient(135deg,#e8e3d8,#dcd6c9)}
+.pl .work__media.is-type .big{color:rgba(20,20,22,.14)}
+.pl .hero__thesis p b{box-shadow:inset 0 -.42em 0 rgba(200,64,26,.18)}
+.pl .field{background:#eae6dd}
