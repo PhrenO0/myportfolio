@@ -109,10 +109,10 @@ figcaption{margin-top:2mm;font-family:var(--mono);font-size:7pt;letter-spacing:.
 
 /* ---------- strip ---------- */
 .strip{margin-top:auto;border-top:1.2pt solid var(--ink);padding-top:4mm}
-.strip .row{display:grid;grid-template-columns:38mm 1fr;gap:5mm;padding:4mm 0;border-bottom:1pt solid var(--line)}
+.strip .row{display:grid;grid-template-columns:34mm 1fr;gap:5mm;padding:2.8mm 0;border-bottom:1pt solid var(--line)}
 .strip .row:last-child{border-bottom:0}
 .strip .t{font-size:10pt;font-weight:800;letter-spacing:-.03em}
-.strip .d{font-size:9pt;line-height:1.55;color:var(--ink-2);letter-spacing:-.015em}
+.strip .d{font-size:8.4pt;line-height:1.5;color:var(--ink-2);letter-spacing:-.015em}
 
 /* ---------- timeline ---------- */
 .tl{border-top:1pt solid var(--line)}
@@ -159,6 +159,10 @@ figcaption{margin-top:2mm;font-family:var(--mono);font-size:7pt;letter-spacing:.
 .dp .v b{font-weight:700}
 
 .pg.spread{justify-content:space-between}
+.vw{margin:5mm 0 0}
+.vw img{width:100%;border:1px solid var(--line)}
+.vw figcaption{margin-top:2.5mm;font-family:var(--mono);font-size:7pt;letter-spacing:.06em;
+  color:var(--ink-3);text-transform:none;line-height:1.6}
 @media print{
   @page{size:A4;margin:0}
   html,body{background:var(--paper)}
@@ -330,6 +334,11 @@ figcaption{margin-top:2mm;font-family:var(--mono);font-size:7pt;letter-spacing:.
       <figcaption>저장소의 대시보드 생성 코드를 직접 실행한 화면<br>github.com/PhrenO0/my-curator · neural-flow</figcaption>
     </figure>
   </div>
+
+  <figure class="vw">
+    <img src="assets/img/video-works.jpg" alt="유튜브 채널의 영상 작업 3편">
+    <figcaption>영상 작업 — A.INUS 본상작 'Every Masterpiece Needs Wings' · 무신사 광고제 출품작 '피드백샌드백' · 2026 대한민국 AI 콘텐츠 페스티벌 KAiCF 출품작 '신데렐라의 바삭한 선택' &nbsp;/&nbsp; youtube.com/@별이바람에스치듯</figcaption>
+  </figure>
 
   <div class="strip">
     <div class="row"><div class="t">피드백샌드백</div>
